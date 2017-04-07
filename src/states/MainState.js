@@ -25,6 +25,8 @@ export default class MainState extends Phaser.State {
 
     // Bind the jump
     const spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
+    console.log(this.game.input.onDown)
+    this.game.input.onDown.add(this.jump, this)
     spaceKey.onDown.add(this.jump, this)
 
     // Add the pipe group
@@ -50,7 +52,7 @@ export default class MainState extends Phaser.State {
   }
 
   restartGame () {
-    this.game.state.start('main')
+    this.game.state.start('start')
   }
 
   addOnePipe (x, y) {
