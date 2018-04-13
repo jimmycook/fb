@@ -25,7 +25,6 @@ export default class MainState extends Phaser.State {
 
     // Bind the jump
     const spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
-    console.log(this.game.input.onDown)
     this.game.input.onDown.add(this.jump, this)
     spaceKey.onDown.add(this.jump, this)
 
@@ -67,11 +66,11 @@ export default class MainState extends Phaser.State {
   }
 
   addRowOfPipes () {
-    const hole = Math.floor(Math.random() * 5) + 1
+    const hole = Math.floor(Math.random() * 4) + 1
     this.score += 1
     this.labelScore.text = this.score
     for (let i = 0; i < 8; i++) {
-      if (i != hole && i != hole + 1) {
+      if (i != hole && i != hole + 1 && i != hole + 2) {
         this.addOnePipe(400, i * 60 + 10)
       }
     }
